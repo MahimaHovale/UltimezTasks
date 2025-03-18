@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMS</title>
+    <style>
+        .message { font-size: 12px; margin-top: 5px; color: red; }
+    </style>
+</head>
+<body>
+    <h2>USER REGISTERATION FORM</h2>
+    <form>
+        <label for="fname">First Name:</label>
+         <input type="text" id="fname" name="fname"><br><br>
+         <label for="lname">Last Name:</label>
+         <input type="text" id="lname" name="lname"><br><br> 
+        <label for="email">Email:</label>
+         <input type="email" id="email" name="email"><br><br>
+        <label for="password">Password:</label>
+            <input type="password" id="password" name="password" ><br>
+            <div id="message" class="message"></div><br>
+        <label for="password">Confirm Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+        <label for="date">Date of Birth:</label>
+            <input type="date" id="date" name="date"><br><br>
+        <label for="gender">Gander:</label>
+            <input type="radio" id="gender" name="gender" value="male">
+        <label for="male">Male</label>
+            <input type="radio" id="gender" name="gender" value="female">
+        <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br><br>
+        <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="India">India</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="USA">USA</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+            </select><br><br>    
+        <input type="checkbox" id="agree" name="agree">I agree to the terms and conditions<br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        const password = document.getElementById('password');
+        const message = document.getElementById('message');
+
+        password.addEventListener('input', function() {
+            const hasNumber = /[0-9]/.test(this.value);
+            const hasLower = /[a-z]/.test(this.value);
+            const hasUpper = /[A-Z]/.test(this.value);
+            
+            let text = '';
+            if(!hasNumber) text += 'Add a number (0-9) ';
+            if(!hasLower) text += 'Add lowercase (a-z) ';
+            if(!hasUpper) text += 'Add uppercase (A-Z)';
+            
+            message.textContent = text;
+        });
+    </script>
+</body>
+</html>
