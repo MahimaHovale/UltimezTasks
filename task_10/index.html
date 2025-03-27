@@ -8,21 +8,17 @@
         /* Universal Selector */
         * {
             text-align: center;
-            color: #333;
             font-family: Arial;
         }
 
-        /* Simple Selector (Type Selector) */
+        /* Simple Selector */
         h1 {
-            text-align: center;
             color: #333;
-            font-family: Arial;
         }
 
         /* ID Selector */
         #main {
             color: green;
-            text-align: center;
             margin: 20px 0;
         }
 
@@ -30,22 +26,53 @@
         .important {
             color: orange;
             font-weight: bold;
-            text-align: center;
         }
 
         /* Grouping Selector */
         h2, p {
             color: #555;
-            font-family: Arial;
-            text-align: center;
+        }
+
+        /* Pseudo-classes for Links */
+        a:link {
+            color: blue;              /* unvisited link */
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: purple;            /* visited link */
+        }
+
+        a:hover {
+            color: red;              /* mouse over link */
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: green;            /* selected link */
+        }
+
+        /* Pseudo-elements */
+        p::first-line {
+            font-weight: bold;       /* styles first line of paragraphs */
+        }
+
+        p::first-letter {
+            font-size: 200%;         /* styles first letter of paragraphs */
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Ultimez Technology</h1> <!-- Simple Selector -->
-    <p id="main">We are learning CSS and how to use different types of CSS.</p> <!-- ID Selector -->
-    <p class="important">CSS helps in styling HTML elements effectively.</p> <!-- Class Selector -->
-    <h2>CSS Selectors</h2> <!-- Grouping Selector -->
-    <p>Selectors are used to target HTML elements for styling.</p> <!-- Grouping Selector -->
+    <h1>Ultimez Technology</h1>
+    <p id="main">We are learning CSS and how to use different types of CSS.</p>
+    <p class="important">CSS helps in styling HTML elements effectively.</p>
+    <h2>CSS Selectors</h2>
+    <p>Selectors are used to target HTML elements for styling.</p>
+    
+    <!-- Adding links to demonstrate pseudo-classes -->
+    <div style="margin: 20px 0;">
+        <a href="https://www.example.com">Click this link</a>
+    </div>
 </body>
 </html>
