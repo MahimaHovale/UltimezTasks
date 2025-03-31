@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Table and Position Demo</title>
+    <style>
+        /* Basic Setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Space for header only */
+        }
+
+        /* Fixed Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px;
+            z-index: 100;
+            height: 50px; /* Fixed height for header */
+        }
+
+        /* Fixed Sidebar - Updated */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 60px; /* Start below header */
+            bottom: 60px; /* Space for footer */
+            width: 200px;
+            background: #f4f4f4;
+            padding: 20px;
+            overflow-y: auto; /* Allow scrolling if content is too long */
+            border-right: 1px solid #ddd;
+        }
+
+        /* Main Content Area - Updated */
+        .table-container {
+            margin-left: 220px; /* Space for sidebar */
+            padding: 20px;
+            margin-bottom: 60px; /* Space for footer */
+        }
+
+        /* Basic Table Styling with Responsiveness */
+        .table-container {
+            overflow-x: auto; /* Makes table responsive */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* Relative/Absolute Example */
+        .relative-container {
+            position: relative;
+            height: 100px;
+            background: #eee;
+            margin: 20px 0;
+        }
+
+        .absolute-element {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid #333;
+            z-index: 1000;
+        }
+
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        /* Updated Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            z-index: 100;
+            height: 50px; /* Fixed height for footer */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Employee List</h2>
+    </div>
+
+    <div class="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+            <li>Dashboard</li>
+            <li>Employees</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Department</th>
+            </tr>
+            <tr>
+                <td>John Smith</td>
+                <td>Developer</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>Jane Doe</td>
+                <td>Designer</td>
+                <td>UI/UX</td>
+            </tr>
+            <tr>
+                <td>Mike Johnson</td>
+                <td>Manager</td>
+                <td>HR</td>
+            </tr>
+            <tr data-employee="frontend">
+                <td>Arun Kumar</td>
+                <td>Frontend Developer</td>
+                <td>Development</td>
+            </tr>
+            <tr data-employee="designer">
+                <td>Priya Raj</td>
+                <td>UI/UX Designer</td>
+                <td>Design</td>
+            </tr>
+            <tr data-employee="backend">
+                <td>Vikram Singh</td>
+                <td>Backend Developer</td>
+                <td>Development</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="relative-container">
+        <div class="absolute-element">Employee Element</div>
+    </div>
+
+    <div class="modal-backdrop"></div>
+    <div class="modal">
+        <h3>Employee Window</h3>
+        <p>This is a employee window.</p>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Company Name</p>
+    </div>
+
+    <script>
+        // Simple modal toggle
+        document.querySelector('.absolute-element').onclick = function() {
+            document.querySelector('.modal').style.display = 'block';
+            document.querySelector('.modal-backdrop').style.display = 'block';
+        }
+
+        document.querySelector('.modal-backdrop').onclick = function() {
+            document.querySelector('.modal').style.display = 'none';
+            this.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
