@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background and Border Examples</title>
+    <style>
+        /* Page Background */
+        body {
+            background-image: url("images/ultimezlogo.jpeg");
+            background-repeat: repeat;  /* Makes the image repeat */
+            background-size: 200px;     /* Controls the size of each repeated image */
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;         /* Ensures full viewport height */
+        }
+
+        /* Content Container */
+        .content {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Border Examples */
+        .border-solid {
+            border: 2px solid black; /* Solid border */
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .border-dashed {
+            border: 2px dashed blue; /* Dashed border */
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .border-dotted {
+            border: 2px dotted red; /* Dotted border */
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .border-double {
+            border: 4px double green; /* Double border */
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .rounded {
+            border: 2px solid purple; /* Solid border with rounded corners */
+            border-radius: 15px; /* Rounded corners */
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Background and Border Examples</h1>
+        <div class="border-solid">This has a solid border</div>
+        <div class="border-dashed">This has a dashed border</div>
+        <div class="border-dotted">This has a dotted border</div>
+        <div class="border-double">This has a double border</div>
+        <div class="rounded">This has rounded corners</div>
+    </div>
+</body>
+</html>
