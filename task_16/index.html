@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation and Display Properties</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .horizontal-nav {
+            background: #333;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .horizontal-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s;
+        }
+
+        .horizontal-nav a:hover {
+            opacity: 0.8;
+        }
+
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            height: calc(100% - 60px);
+            background: #444;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+            z-index: 900;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        .nav-category {
+            margin-bottom: 20px;
+        }
+
+        .nav-category h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #555;
+            padding-bottom: 5px;
+        }
+
+        .nav-category a {
+            display: block;
+            color: #ddd;
+            text-decoration: none;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-category a:hover {
+            color: #fff;
+        }
+
+        .sidebar-dropdown {
+            position: relative;
+        }
+
+        .sidebar-dropdown-content {
+            display: none;
+            padding-left: 15px;
+        }
+
+        .sidebar-dropdown:hover .sidebar-dropdown-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+                top: 60px;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 1001;
+                color: white;
+                cursor: pointer;
+            }
+        }
+
+        /* Scroll Overflow Example */
+        .scroll-overflow {
+            width: 300px;
+            height: 150px;
+            overflow: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Hidden Overflow Example */
+        .hidden-overflow {
+            width: 300px;
+            height: 150px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Image Overflow Example */
+        .image-overflow {
+            width: 300px;
+            height: 150px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .image-overflow img {
+            position: absolute;
+            top: -50px;
+            left: -50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="horizontal-nav">
+        <div class="hamburger">☰</div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-category">
+            <h3>Navigation Types</h3>
+            <a href="#horizontal">Horizontal Navigation</a>
+            <a href="#vertical">Vertical Navigation</a>
+            <div class="sidebar-dropdown">
+                <a href="#dropdown">Dropdown Menu ▾</a>
+                <div class="sidebar-dropdown-content">
+                    <a href="#sub1">Submenu 1</a>
+                    <a href="#sub2">Submenu 2</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-category">
+            <h3>Overflow Examples</h3>
+            <a href="#scroll">Scroll Overflow</a>
+            <a href="#hidden">Hidden Overflow</a>
+            <a href="#image">Image Overflow</a>
+        </div>
+
+        <div class="nav-category">
+            <h3>Display Properties</h3>
+            <a href="#block">Block</a>
+            <a href="#inline">Inline</a>
+            <a href="#inline-block">Inline-Block</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Scroll Overflow Section -->
+        <section id="scroll">
+            <h2>Scroll Overflow</h2>
+            <div class="scroll-overflow">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel nisi nec eros tincidunt tincidunt. 
+                Suspendisse potenti. Integer sit amet ligula nec justo vehicula tincidunt. 
+                Curabitur non orci nec lorem fermentum tincidunt.
+            </div>
+        </section>
+
+        <!-- Hidden Overflow Section -->
+        <section id="hidden">
+            <h2>Hidden Overflow</h2>
+            <div class="hidden-overflow">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel nisi nec eros tincidunt tincidunt. 
+                Suspendisse potenti. Integer sit amet ligula nec justo vehicula tincidunt. 
+                Curabitur non orci nec lorem fermentum tincidunt.
+            </div>
+        </section>
+
+        <!-- Image Overflow Section -->
+        <section id="image">
+            <h2>Image Overflow</h2>
+            <div class="image-overflow">
+                <img src="images/ultimezlogo.jpeg" alt="Example Image">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelector('.hamburger').onclick = function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
