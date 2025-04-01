@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Area Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rectangle Area Calculator</h2>
+    
+    <input type="number" id="width" placeholder="Enter width">
+    <input type="number" id="height" placeholder="Enter height">
+    <br>
+    <button onclick="calculateArea()">Calculate Area</button>
+    
+    <p id="result"></p>
+
+    <script>
+        function calculateArea() {
+            // Get input values
+            const width = document.getElementById("width").value;
+            const height = document.getElementById("height").value;
+            
+            // Calculate area
+            const area = width * height;
+            
+            // Display result
+            document.getElementById("result").textContent = 
+                `Area of rectangle: ${area}`;
+        }
+    </script>
+</body>
+</html>
