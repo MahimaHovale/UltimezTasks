@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Array Operations</h1>
+    <button id="runButton">Run Array Operations</button>
+    <p><small><i>Note: Results are also logged to the browser console (F12 or right-click > Inspect > Console)</i></small></p>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('runButton').addEventListener('click', function() {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = ''; // Clear previous output
+            
+            // 1. Initialize an array named numbers
+            let numbers = [10, 5, 8, 3, 12, 6];
+            console.log("Initial array:", numbers);
+            appendOutput("Initial array: " + numbers);
+            
+            // 2. Print the length of the array
+            console.log("Array length:", numbers.length);
+            appendOutput("Array length: " + numbers.length);
+            
+            // 3. Add the number 7 to the end of the array
+            numbers.push(7);
+            console.log("After adding 7:", numbers);
+            appendOutput("After adding 7: " + numbers);
+            
+            // 4. Remove the first element of the array
+            numbers.shift();
+            console.log("After removing first element:", numbers);
+            appendOutput("After removing first element: " + numbers);
+            
+            // 5. Sort the array in ascending order
+            numbers.sort((a, b) => a - b);
+            console.log("After sorting in ascending order:", numbers);
+            appendOutput("After sorting in ascending order: " + numbers);
+            
+            // 6. Reverse the array
+            numbers.reverse();
+            console.log("After reversing:", numbers);
+            appendOutput("After reversing: " + numbers);
+            
+            // 7. Check if the number 8 exists in the array
+            if (numbers.includes(8)) {
+                console.log("Number 8 exists");
+                appendOutput("Number 8 exists");
+            } else {
+                console.log("Number 8 doesn't exist");
+                appendOutput("Number 8 doesn't exist");
+            }
+            
+            // 8. Find the index of the number 12 in the array
+            const indexOfTwelve = numbers.indexOf(12);
+            console.log("Index of number 12:", indexOfTwelve);
+            appendOutput("Index of number 12: " + indexOfTwelve);
+            
+            // 9. Create a new array by doubling each number
+            const doubledNumbers = numbers.map(num => num * 2);
+            
+            // 10. Print the doubled numbers array
+            console.log("Doubled numbers:", doubledNumbers);
+            appendOutput("Doubled numbers: " + doubledNumbers);
+        });
+        
+        function appendOutput(text) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += text + '<br>';
+        }
+    </script>
+</body>
+</html>
