@@ -12,7 +12,7 @@ function log(text) {
     output.textContent += text + '\n';
 }
 
-// ===== TASK 1: PERSON OBJECT =====
+//TASK 1: PERSON OBJECT
 function runPersonObjectsTask() {
     clearOutput();
     console.group('Person Objects Task');
@@ -45,7 +45,7 @@ function runPersonObjectsTask() {
     console.groupEnd();
 }
 
-// ===== TASK 2: SETS OPERATIONS =====
+//TASK 2: SETS OPERATIONS
 function runSetsOperationsTask() {
     clearOutput();
     console.group('Sets Operations Task');
@@ -125,7 +125,7 @@ function runSetsOperationsTask() {
     console.groupEnd();
 }
 
-// ===== TASK 3: MAPS OPERATIONS =====
+//TASK 3: MAPS OPERATIONS
 function runMapsOperationsTask() {
     clearOutput();
     console.group('Maps Operations Task');
