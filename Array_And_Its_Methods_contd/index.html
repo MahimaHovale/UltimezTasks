@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Array Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Name Array Operations</h1>
+    <button id="runButton">Run Name Operations</button>
+    <p><small><i>Note: Results are also logged to the browser console (F12 or right-click > Inspect > Console)</i></small></p>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('runButton').addEventListener('click', function() {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = ''; // Clear previous output
+            
+            // 1. Initialize an array named names
+            let names = ["John", "Jane", "Doe", "Alice", "Bob"];
+            console.log("Initial names array:", names);
+            appendOutput("Initial names array: " + names);
+
+            // 2. Print all the names in the array, each on a new line
+            appendOutput("\nNames in the array:");
+            names.forEach(name => {
+                console.log(name);
+                appendOutput(name);
+            });
+
+            // 3. Add the name " Eve" to the end of the array
+            names.push("Eve");
+            console.log("\nAfter adding Eve:", names);
+            appendOutput("\nAfter adding Eve: " + names);
+
+            // 4. Remove the name "Doe" from the array
+            names = names.filter(name => name !== "Doe");
+            console.log("\nAfter removing Doe:", names);
+            appendOutput("\nAfter removing Doe: " + names);
+
+            // 5. Sort the array in alphabetical order
+            names.sort();
+            console.log("\nAfter sorting alphabetically:", names);
+            appendOutput("\nAfter sorting alphabetically: " + names);
+
+            // 6. Check if the name "Alice" exists in the array
+            if (names.includes("Alice")) {
+                console.log("\nAlice is present");
+                appendOutput("\nAlice is present");
+            } else {
+                console.log("\nAlice is not present");
+                appendOutput("\nAlice is not present");
+            }
+
+            // 7. Convert all the names to uppercase and store them in a new array
+            const uppercaseNames = names.map(name => name.toUpperCase());
+
+            // 8. Print the uppercaseNames array to the console
+            console.log("\nUppercase names:", uppercaseNames);
+            appendOutput("\nUppercase names: " + uppercaseNames);
+        });
+        
+        function appendOutput(text) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += text + '<br>';
+        }
+    </script>
+</body>
+</html>
