@@ -1,32 +1,59 @@
-// 1. Initialize an array named names
-let names = [" John", "Jane", "Doe", "Alice", "Bob"];
-console.log("Initial names array:", names);
+const output = document.getElementById('output');
+const runButton = document.getElementById('runButton');
 
-// 2. Print all the names in the array, each on a new line
-console.log("\nNames in the array:");
-names.forEach(name => console.log(name));
-
-// 3. Add the name " Eve" to the end of the array
-names.push(" Eve");
-console.log("\nAfter adding Eve:", names);
-
-// 4. Remove the name "Doe" from the array
-names = names.filter(name => name !== "Doe");
-console.log("\nAfter removing Doe:", names);
-
-// 5. Sort the array in alphabetical order
-names.sort();
-console.log("\nAfter sorting alphabetically:", names);
-
-// 6. Check if the name "Alice" exists in the array
-if (names.includes("Alice")) {
-    console.log("\nAlice is present");
-} else {
-    console.log("\nAlice is not present");
+// Function to clear output
+function clearOutput() {
+    output.textContent = '';
+    console.clear();
 }
 
-// 7. Convert all the names to uppercase and store them in a new array
-const uppercaseNames = names.map(name => name.toUpperCase());
+// Function to log output to both console and output element
+function log(message) {
+    output.textContent += message + '\n';
+    console.log(message);
+}
 
-// 8. Print the uppercaseNames array to the console
-console.log("\nUppercase names:", uppercaseNames);
+// Function to run advanced array operations
+function runAdvancedArrayOperations() {
+    clearOutput();
+    console.group('Name Array Operations');
+    log("=== Name Array Operations ===\n");
+    
+    // 1. Initialize names array
+    let names = ['John', 'Jane', 'Doe', 'Alice', 'Bob'];
+    log("Initial names array: " + names.join(','));
+    
+    // 2. Print each name on a new line
+    log("\nNames in the array:");
+    names.forEach(name => log(name));
+    
+    // 3. Add a new name
+    names.push('Eve');
+    log("\nAfter adding Eve: " + names.join(','));
+    
+    // 4. Remove a specific name
+    names = names.filter(name => name !== 'Doe');
+    log("\nAfter removing Doe: " + names.join(','));
+    
+    // 5. Sort alphabetically
+    names.sort();
+    log("\nAfter sorting alphabetically: " + names.join(','));
+    
+    // 6. Check if a name exists
+    if (names.includes('Alice')) {
+        log("\nAlice is present");
+    }
+    
+    // 7. Convert to uppercase
+    const upperNames = names.map(name => name.toUpperCase());
+    log("\nUppercase names: " + upperNames.join(','));
+    
+    console.groupEnd();
+}
+
+// Add event listener to button
+runButton.addEventListener('click', runAdvancedArrayOperations);
+
+// Initial state - clear output
+clearOutput();
+log("Click the button above to run array operations with names.");
