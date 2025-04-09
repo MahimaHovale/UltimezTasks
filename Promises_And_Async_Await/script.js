@@ -20,11 +20,16 @@ function log(message) {
 function fetchData() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve({
-                id: 42,
-                message: "Data successfully fetched!",
-                timestamp: new Date().toISOString()
-            });
+            const success = Math.random() > 0.3; 
+            if (success) {
+                resolve({
+                    id: 42,
+                    message: "Data successfully fetched!",
+                    timestamp: new Date().toISOString()
+                });
+            } else {
+                reject(new Error("Failed to fetch data. Please try again."));
+            }
         }, 1500);
     });
 }
