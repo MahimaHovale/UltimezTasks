@@ -5,94 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Name Array Operations</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
         button {
-            padding: 10px 20px;
+            padding: 12px 20px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
-            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            transition: background-color 0.3s, transform 0.2s;
         }
+        
         button:hover {
             background-color: #45a049;
         }
-        #output {
-            background-color: #f5f5f5;
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        pre {
+            background-color: #f8f8f8;
             border: 1px solid #ddd;
-            border-radius: 4px;
             padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
             white-space: pre-wrap;
-            font-family: monospace;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        
+        .console-note {
+            text-align: center;
+            margin: 10px 0;
+            color: #555;
+            font-style: italic;
+            font-size: 14px;
+        }
+        
+        .github-link {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            pre {
+                padding: 10px;
+                font-size: 13px;
+            }
+            
+            .console-note p {
+                font-size: 12px;
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Name Array Operations</h1>
-    <button id="runButton">Run Name Operations</button>
-    <p><small><i>Note: Results are also logged to the browser console (F12 or right-click > Inspect > Console)</i></small></p>
-    <div id="output"></div>
-
-    <script>
-        document.getElementById('runButton').addEventListener('click', function() {
-            const outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = ''; 
-            
-            // Initialize an array named names
-            let names = ["John", "Jane", "Doe", "Alice", "Bob"];
-            console.log("Initial names array:", names);
-            appendOutput("Initial names array: " + names);
-
-            //Print all the names in the array, each on a new line
-            appendOutput("\nNames in the array:");
-            names.forEach(name => {
-                console.log(name);
-                appendOutput(name);
-            });
-
-            //Add the name " Eve" to the end of the array
-            names.push("Eve");
-            console.log("\nAfter adding Eve:", names);
-            appendOutput("\nAfter adding Eve: " + names);
-
-            //Remove the name "Doe" from the array
-            names = names.filter(name => name !== "Doe");
-            console.log("\nAfter removing Doe:", names);
-            appendOutput("\nAfter removing Doe: " + names);
-
-            //Sort the array in alphabetical order
-            names.sort();
-            console.log("\nAfter sorting alphabetically:", names);
-            appendOutput("\nAfter sorting alphabetically: " + names);
-
-            //Check if the name "Alice" exists in the array
-            if (names.includes("Alice")) {
-                console.log("\nAlice is present");
-                appendOutput("\nAlice is present");
-            } else {
-                console.log("\nAlice is not present");
-                appendOutput("\nAlice is not present");
-            }
-
-            //Convert all the names to uppercase and store them in a new array
-            const uppercaseNames = names.map(name => name.toUpperCase());
-
-            //Print the uppercaseNames array to the console
-            console.log("\nUppercase names:", uppercaseNames);
-            appendOutput("\nUppercase names: " + uppercaseNames);
-        });
+    <div class="container">
+        <a href="https://github.com/MahimaHovale/UltimezTasks/tree/main/Array_And_Its_Methods_contd" class="github-link" target="_blank">GitHub</a>
+        <h1>Name Array Operations</h1>
         
-        function appendOutput(text) {
-            const outputDiv = document.getElementById('output');
-            outputDiv.innerHTML += text + '<br>';
-        }
-    </script>
+        <div class="buttons">
+            <button id="runButton">Run Array Operations</button>
+        </div>
+        
+        <div class="console-note">
+            <p><i>Note: Results are also logged to the browser console (F12 or right-click > Inspect > Console)</i></p>
+        </div>
+        
+        <pre id="output">Click the button above to run array operations with names.</pre>
+    </div>
+
+    <script src="array_operations_advanced.js"></script>
 </body>
 </html>
